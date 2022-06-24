@@ -12,7 +12,7 @@ export default function JokeCard(props) {
   return (
     <Card sx={{ backgroundColor: "transparent" }}>
       <CardContent>
-        <Typography variant="body1" component="body1" sx={{ fontSize: 25 }} gutterBottom>
+        <Typography sx={{ fontSize: 25 }} gutterBottom>
           {props.joke}
         </Typography>
       </CardContent>

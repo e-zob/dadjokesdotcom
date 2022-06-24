@@ -3,19 +3,16 @@ import "./App.css";
 import * as React from "react";
 import { useState } from "react";
 
-import { getJoke } from "./Networking";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
-import JokeCard from "./components/JokeCard";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Header from "./components/Header";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./pages/register/Register";
+import Home from "./pages/home/Home";
+import LogIn from "./pages/login/LogIn";
+import NotFound from "./pages/notfound/NotFound";
 
 function App() {
-  const [joke, setJoke] = useState("boa");
-
   const theme = createTheme({
     palette: {
       type: "dark",
@@ -31,34 +28,23 @@ function App() {
       text: {
         primary: "#ffffff",
       },
-      typography: {
-        body1: {
-          fontFamily: "monospace",
-        },
-      },
+    },
+    typography: {
+      fontFamily: "monospace",
     },
   });
-
-  function showJokeCard() {
-    if (joke) return <JokeCard theme={theme} joke={joke} />;
-  }
-
-  async function handleJokeButton() {
-    const info = await getJoke();
-    console.log(info);
-    setJoke(info.joke);
-  }
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header />
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", spacing: "3px", height: "100vh", width: "100vw" }}>
-        <Box sx={{ width: "70vw", paddingBottom: 2 }}>{showJokeCard()}</Box>
-        <Button onClick={handleJokeButton} variant="contained" startIcon={joke ? <AutorenewIcon /> : null}>
-          Joke
-        </Button>
-      </Box>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

@@ -1,4 +1,3 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,26 +11,17 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useState } from "react";
 
 export default function Header(props) {
-  const [auth, setAuth] = useState(true);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [auth, setAuth] = useState(false);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  function handleProfile() {
+    return;
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <IconButton color="inherit">
+          <IconButton href="/" color="inherit">
             <EmojiEmotionsIcon sx={{ display: { xs: "none", md: "flex" }, fontSize: 33, mr: 1 }} />
           </IconButton>
           <Typography
@@ -59,7 +49,7 @@ export default function Header(props) {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleMenu}
+                onClick={handleProfile}
                 color="inherit"
               >
                 <AccountCircle sx={{ display: { xs: "none", md: "flex" }, fontSize: 33, mr: 1 }} />
@@ -69,7 +59,7 @@ export default function Header(props) {
               </IconButton>
             </div>
           ) : (
-            <IconButton color="inherit">
+            <IconButton href="/login" color="inherit">
               <LoginIcon sx={{ display: { xs: "none", md: "flex" }, fontSize: 33, mr: 1 }} />
             </IconButton>
           )}
