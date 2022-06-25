@@ -5,9 +5,8 @@ import ShareIcon from "@mui/icons-material/Share";
 
 import { useState } from "react";
 
-import { EmailShareButton } from "react-share";
-
-import { EmailIcon } from "react-share";
+import { EmailShareButton, LinkedinShareButton, WhatsappShareButton } from "react-share";
+import { EmailIcon, WhatsappIcon } from "react-share";
 
 export default function ShareButton(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -43,11 +42,12 @@ export default function ShareButton(props) {
           "aria-labelledby": "basic-button",
         }}
       >
+        <WhatsappShareButton title={props.joke}>
+          <WhatsappIcon />
+        </WhatsappShareButton>
         <EmailShareButton subject="DadJokesDotCom" body={props.joke}>
           <EmailIcon />
         </EmailShareButton>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>
   );
