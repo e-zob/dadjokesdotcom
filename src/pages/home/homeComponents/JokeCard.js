@@ -1,12 +1,11 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SaveIcon from "@mui/icons-material/Save";
-import ShareIcon from "@mui/icons-material/Share";
 import Stack from "@mui/material/Stack";
+import ShareButton from "./ShareButton";
 
 export default function JokeCard(props) {
   return (
@@ -21,9 +20,7 @@ export default function JokeCard(props) {
           <Button variant="outlined" startIcon={<SaveIcon />}>
             Save
           </Button>
-          <Button variant="outlined" startIcon={<ShareIcon />}>
-            Share
-          </Button>
+          <ShareButton joke={props.joke} />
         </Stack>
       </CardActions>
     </Card>
