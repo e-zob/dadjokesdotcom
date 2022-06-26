@@ -5,12 +5,14 @@ import ShareIcon from "@mui/icons-material/Share";
 
 import { useState } from "react";
 
-import { EmailShareButton, LinkedinShareButton, WhatsappShareButton } from "react-share";
-import { EmailIcon, WhatsappIcon } from "react-share";
+import { EmailShareButton, FacebookShareButton, WhatsappShareButton } from "react-share";
+import { WhatsappIcon, FacebookIcon, EmailIcon } from "react-share";
 
 export default function ShareButton(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
+  const url = "https://dadjokesdotcom.netlify.app/";
 
   function handleClick(event) {
     setAnchorEl(event.currentTarget);
@@ -43,10 +45,13 @@ export default function ShareButton(props) {
         }}
       >
         <WhatsappShareButton title={props.joke}>
-          <WhatsappIcon />
+          <WhatsappIcon round />
         </WhatsappShareButton>
-        <EmailShareButton subject="DadJokesDotCom" body={props.joke}>
-          <EmailIcon />
+        <FacebookShareButton quote={props.joke} hashtag="#dadjokesdotcom" url={url}>
+          <FacebookIcon round />
+        </FacebookShareButton>
+        <EmailShareButton subject="DadJokesDotCom" body={props.joke} url={url}>
+          <EmailIcon round />
         </EmailShareButton>
       </Menu>
     </div>
