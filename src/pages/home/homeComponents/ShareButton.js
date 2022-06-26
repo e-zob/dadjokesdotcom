@@ -49,7 +49,7 @@ export default function ShareButton(props) {
           },
         }}
       >
-        <WhatsappShareButton title={props.joke}>
+        <WhatsappShareButton title={props.joke} url={url}>
           <WhatsappIcon round />
         </WhatsappShareButton>
         <FacebookShareButton quote={props.joke} hashtag="#dadjokesdotcom" url={url}>
