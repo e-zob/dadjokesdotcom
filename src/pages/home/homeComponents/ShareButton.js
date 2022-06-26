@@ -43,6 +43,11 @@ export default function ShareButton(props) {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
+        sx={{
+          "& .MuiPaper-root": {
+            backgroundColor: "transparent",
+          },
+        }}
       >
         <WhatsappShareButton title={props.joke}>
           <WhatsappIcon round />
