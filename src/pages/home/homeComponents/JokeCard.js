@@ -17,9 +17,9 @@ export default function JokeCard(props) {
       </CardContent>
       <CardActions>
         <Stack direction="row" spacing={2}>
-          <Button variant="outlined" startIcon={<SaveIcon />}>
+          {/* <Button variant="outlined" startIcon={<SaveIcon />}>
             Save
-          </Button>
+          </Button> */}
           <ShareButton joke={props.joke} />
         </Stack>
       </CardActions>

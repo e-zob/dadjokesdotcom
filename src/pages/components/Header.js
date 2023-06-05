@@ -42,7 +42,7 @@ export default function Header(props) {
           >
             DadJokesDotCom
           </Typography>
-          {auth ? (
+          {/* {auth ? (
             <div>
               <IconButton
                 size="large"
@@ -62,7 +62,7 @@ export default function Header(props) {
             <IconButton href="/login" color="inherit">
               <LoginIcon sx={{ display: { xs: "none", md: "flex" }, fontSize: 33, mr: 1 }} />
             </IconButton>
-          )}
+          )} */}
         </Toolbar>
       </AppBar>
     </Box>
