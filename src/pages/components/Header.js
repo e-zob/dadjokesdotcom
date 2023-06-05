@@ -29,6 +29,7 @@ export default function Header(props) {
             noWrap
             component="a"
             href="/"
+            align="center"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
